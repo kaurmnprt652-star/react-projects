@@ -1,2 +1,2 @@
-# 👋 Hi, I'm Manpreet Kaur
-💻 Aspiring React JS Developer...
+# react-projects
+
