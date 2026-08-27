@@ -10,7 +10,7 @@ const App = () => {
   const [index ,setIndex] = useState(1)
 
   const getData = async () => {
-    const response = await axios.get(`https://picsum.photos/v2/list?page=${index}&limit=30`)
+    const response = await axios.get(`https://picsum.photos/v2/list?page=${index}&limit=10`)
 
     setUserData(response.data)
   }
@@ -18,9 +18,9 @@ const App = () => {
   useEffect(() => {
     getData()
     
-  }, [])
+  }, [index])
 
-    let printUserData = <h3 className='text-gray-400 text-xs'>No User Found</h3>
+    let printUserData = <h3 className='text-gray-400 text-xs absolute top-1/2 left-1/2 translate-x-1/2 translate-y-1/2 font-semibold *:'>Loading...</h3>
     if (userData.length > 0) {
       printUserData = userData.map(function(elem,idx) {
 
@@ -40,28 +40,41 @@ const App = () => {
 
   return (
     <div className='bg-black overflow-auto h-screen p-4 text-white'>
-      <h1 className='fixed bg-red-500 text-6xl'>{index}</h1>
+    
       <button
       onClick={getData}
       className='bg-green-600 active:scale-95 mb-3 px-5 py-2 rounded text-white'>Get data</button>
 
-      <div className='flex flex-wrap gap-4'>
+      <div className='flex h-[82%]flex-wrap gap-4 p-2'>
         {printUserData}
-      </div>
-      <div>
-        <button className='bg-amber-400 text-sm cursor-pointer active:scale-95 text-black rounded px-4 py-2 font-semibold'>
-          Prev</button>
+      
+        <button className='bg-amber-400 text-sm cursor-pointer active:scale-95 text-black rounded px-4 py-2 font-semibold'
           onClick={()=>{
+            if(index>1){
             setIndex(index-1)
-
+           setUserData([])
+          }
           }}
-        <button className='bg-amber-400 text-sm cursor-pointer active:scale-95 text-black rounded px-4 py-2 font-semibold'>
+          >
+          Prev</button>
+         
+           <h4>page {index}
+            
+           </h4>
+          
+        <button className='bg-amber-400 text-sm cursor-pointer active:scale-95 text-black rounded px-4 py-2 font-semibold'
+         onClick={()=>{
+         setIndex(index+1)
+         setUserData([])
+          }}
+          >
           Next</button>
-          onClick={()=>{
-            setIndex(index+1)
-          }}
+
+          
+        
       </div>
     </div>
+  
   )
 }
 
