@@ -1,6 +1,6 @@
 function card(){
 
-    return'I am preet'
+    return'I am manprt'
 }
 
 export default card;
