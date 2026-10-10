@@ -23,7 +23,7 @@ const App = () => {
       </div>
       
         <div className="bottom">
-          <h3>$120/hr</h3>
+          <h3>$110/hr</h3>
           <p>Mubai,India</p>
         </div>
         <button>Apply Now</button>
