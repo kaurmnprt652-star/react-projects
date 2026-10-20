@@ -4,7 +4,7 @@
 
 //export default a;
 
-const arr =[10,20,30,40,50]
+const arr =[10,20,30,40,50,80]
 
 const user= Manpreeet
 export default arr;
